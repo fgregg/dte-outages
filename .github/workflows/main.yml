@@ -1,0 +1,37 @@
+name: Run Kubra CLI and Commit JSON Output
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+jobs:
+  run_kubra_and_commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install Kubra
+        run: |
+          pip install kubra
+
+      - name: Run Kubra and Create JSON Output
+        run: |
+          output_file="dte_$(date +'%Y%m%d%H%M%S').json"
+          kubra $(INSTANCE_ID) $(VIEW_ID) > "$output_file"
+        # Modify the 'kubra' command to the actual command to run the CLI tool
+
+      - name: Commit JSON Output
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Auto-commit: Add Kubra output $(date +'%Y%m%d%H%M%S')"
+          git push
