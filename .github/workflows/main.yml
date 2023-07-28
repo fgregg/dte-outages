@@ -26,7 +26,9 @@ jobs:
         run: |
           output_file="dte_$(date +'%Y%m%d%H%M%S').json"
           kubra $(INSTANCE_ID) $(VIEW_ID) > "$output_file"
-        # Modify the 'kubra' command to the actual command to run the CLI tool
+        env:
+          INSTANCE_ID: ${{ vars.INSTANCE_ID }}
+          VIEW_ID: ${{ vars.VIEW_ID }}
 
       - name: Commit JSON Output
         run: |
