@@ -25,7 +25,7 @@ jobs:
       - name: Run Kubra and Create JSON Output
         run: |
           output_file="dte_$(date +'%Y%m%d%H%M%S').json"
-          kubra $(INSTANCE_ID) $(VIEW_ID) > "$output_file"
+          kubra $INSTANCE_ID $VIEW_ID > "$output_file"
         env:
           INSTANCE_ID: ${{ vars.INSTANCE_ID }}
           VIEW_ID: ${{ vars.VIEW_ID }}
