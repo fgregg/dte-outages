@@ -30,10 +30,7 @@ jobs:
           INSTANCE_ID: ${{ vars.INSTANCE_ID }}
           VIEW_ID: ${{ vars.VIEW_ID }}
 
-      - name: Commit JSON Output
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "Auto-commit: Add Kubra output $(date +'%Y%m%d%H%M%S')"
-          git push
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'update'
