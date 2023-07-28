@@ -31,6 +31,6 @@ jobs:
           VIEW_ID: ${{ vars.VIEW_ID }}
 
       - name: Commit changes
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v9
         with:
           message: 'update'
