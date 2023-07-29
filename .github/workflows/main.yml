@@ -35,3 +35,20 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           message: 'update'
+
+      - name: summarize data
+        run: |
+          python scripts/summarize.py . > outage_history.csv
+
+      - name: release
+        uses: WebFreak001/deploy-nightly@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # automatically provided by github actions
+        with:
+          upload_url: https://uploads.github.com/repos/fgregg/dte-outages/releases/114190072/assets{?name,label}
+          release_id: 114190072
+          asset_path: ./outage_history.csv # path to archive to upload
+          asset_name: outage_history.csv # name to upload the release as, use $$ to insert date (YYYYMMDD) and 6 letter commit hash
+          asset_content_type: text/csv # required by GitHub API
+      
+          
