@@ -41,7 +41,7 @@ jobs:
           python scripts/summarize.py . > outage_history.csv
 
       - name: release
-        uses: WebFreak001/deploy-nightly@v2
+        uses: WebFreak001/deploy-nightly@v2.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # automatically provided by github actions
         with:
