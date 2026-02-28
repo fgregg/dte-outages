@@ -1,0 +1,3 @@
+[
+{"id": "9-0", "title": "Area Outage", "desc": {"n_out": 1, "cust_a": {"val": 4, "mask": 5}, "inc_id": null, "crew_status": null, "cluster": false, "etr": "ETR-NULL", "etr_confidence": null, "comments": "Feb 28, 2026, between 12:55 AM and 4:55 AM", "cause": {"EN-US": "Pending crew assessment", "orig": "NOCAUSE"}, "crew_icon": false, "start_time": "2026-02-28T05:27:14.709Z", "lastFileUpdate": "2026-02-28T07:00:28.682Z"}, "geom": {"p": ["{t_bGpeayN"]}, "source": "https://kubra.io/cluster-data/212/227de1f9-4adc-4fc9-98cb-dc2b847c0549/b61d7d69-f2e2-46e2-9153-caae3d558a4e/public/cluster-1/030223212.json"}
+]
